@@ -1,0 +1,57 @@
+#top{
+	-background: url('../images/top.png') repeat-x;	
+	background-color:#C8C8C8;
+	height:32px;
+}
+
+body{	
+	background-size:1020px ;
+	margin:0px 0px;
+	}
+
+#top > #Heading{
+	font-family:"Brush Script MT";
+	font-size:50px;
+	color:#A21111;	
+	float:left;		
+	text-align:center;
+	width:260px;
+	margin:0px 0px;
+}
+
+a{
+	text-decoration:none;
+}
+
+a:hover{
+	text-decoration:underline;
+}
+
+#top > #SubHeading{
+	float:left;
+	font-family: "Brush Script MT";
+	font-size:40px;
+	color:#A271C1;		
+	margin:10px 0px;
+	width:400px;
+}
+	
+#topmenu{	
+	font-size:18px;
+	margin:5px 0px;
+	float:left;
+	text-align:right;
+	width:600px;
+	
+}
+
+
+#LoginInfo{
+	font-family: "Lucida Grande";
+	margin:10px 90px; 
+	font-size:25px;
+}
+#margin{
+	margin:10px 150px;
+}
+

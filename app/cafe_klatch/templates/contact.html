@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask</title>    
+    <strong><link rel="stylesheet" type = text/css href= '{{url_for('static', filename = "css/style.css")}}'> </strong>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1 class="logo">Flask App</h1>
+      </div>
+      </header>
+     
+    <div class="container">
+	    <h2>Contact</h2>
+ 
+	    {% for message in form.name.errors %}
+	      <div class="flash">{{ message }}</div>
+	    {% endfor %}
+ 
+	    {% for message in form.email.errors %}
+	      <div class="flash">{{ message }}</div>
+	    {% endfor %}
+ 
+	    {% for message in form.subject.errors %}
+	      <div class="flash">{{ message }}</div>
+	    {% endfor %}
+ 
+	    {% for message in form.message.errors %}
+	      <div class="flash">{{ message }}</div>
+	    {% endfor %}
+   
+	    <form action="{{ url_for('contact') }}" method=post>
+	      {{ form.hidden_tag() }}
+ 
+	      {{ form.name.label }}
+	      {{ form.name }}
+ 
+	      {{ form.email.label }}
+	      {{ form.email }}
+ 
+	      {{ form.subject.label }}
+	      {{ form.subject }}
+ 
+	      {{ form.message.label }}
+	      {{ form.message }}
+ 
+	      {{ form.submit }}
+	    </form>
+    </div>
+  </body>
+</html>

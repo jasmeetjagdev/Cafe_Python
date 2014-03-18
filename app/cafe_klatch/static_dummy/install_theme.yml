@@ -1,0 +1,8 @@
+---
+content_path: 
+partials: {}
+index_path: index.html
+stylesheet_dir: css
+image_dir: images
+javascript_dir: fullsize
+no_sass: false

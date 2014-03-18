@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Coffee_Klatch</title>
+  <link rel="stylesheet" type = text/css href= '{{url_for('static', filename = "css/style.css")}}'> 
+</head>
+<style type="text/css">
+
+</style>
+
+{% for message in form.email.errors %}
+  <div class="flash">{{ message }}</div>
+{% endfor %}
+ 
+{% for message in form.password.errors %}
+  <div class="flash">{{ message }}</div>
+{% endfor %}
+
+
+<form name="message" action="{{ url_for('signin') }}" method="post">
+<body>
+		
+		<div id="Heading">Coffee-Klatch	
+			<div id="SubHeading">Meeting over a coffee ...!!
+				<div id="LoginInfo">	
+					<table cellpadding="6">
+					    {{ form.hidden_tag() }}
+						
+						<tr>
+							<td align="right">
+							    {{ form.email.label }}
+							       {{ form.email }}
+							  
+							</td>
+						</tr>			
+						<tr>
+							<td align="right">
+								{{ form.password.label }}
+								    {{ form.password }}
+     
+							</td>
+						</tr>
+						<tr>
+						<td align="center" colspan="2">
+							 {{ form.submit }}
+							<input type="submit" name="enter" id="enter" value="Login" style="font-size:18px"/>
+						</td>
+						</tr>
+						<tr><td align="center" colspan="2">
+						<div id="margin">
+							<a href="{{ url_for('signup') }}">Sign Up</a> &nbsp;&nbsp;&nbsp<a href="">Forgot Password</a>
+						</div>
+						</td></tr>
+					</table>		
+				</div>
+					
+			
+			</div>
+		</div>
+					
+		
+</body>
+</form>
+</html>

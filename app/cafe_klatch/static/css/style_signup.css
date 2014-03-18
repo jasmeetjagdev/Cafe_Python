@@ -1,0 +1,53 @@
+body {	
+	background-image:  url('../images/coffee5.jpg');
+    background-repeat: no-repeat;	
+	background-size:1000px;	  
+	width:1700px;
+	}
+#Heading{
+	font-family:"Brush Script MT";
+	font-size:50px;
+	color:#A21111;	
+	float:left;		
+	text-align:center;
+	width:260px;
+	border:3px solid;
+	border-radius:50px;
+}
+
+
+#SubHeading{
+	float:left;
+	font-family: "Brush Script MT";
+	font-size:40px;
+	color:#A271C1;		
+	margin:10px 0px;
+	width:400px;
+}
+
+#signin{	
+	font-size:18px;
+	margin:5px 0px;
+	float:left;
+	text-align:right;
+	width:600px;
+	color:#1111FF;	
+}
+
+#signupinfo{
+	font-family: "Lucida Grande";
+	font-size:22px;
+	color:#929121;	
+	position:absolute;
+	right:180px;
+	margin: 100px 0px;
+	text-align:center;	
+}
+#margin{
+	font-family: "Lucida Grande";
+	font-size:18px;
+	color:#000001;	
+	right:20px;
+	margin: 25px 0px;
+	
+}
