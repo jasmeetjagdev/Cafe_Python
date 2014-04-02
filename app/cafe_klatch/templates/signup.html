@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Coffee_Klatch</title>
+  <link rel="stylesheet" href='{{url_for('static', filename = "css/style_signup.css")}}'> 
+</head>
+
+<style type="text/css">
+</style>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script language="javascript" type="text/javascript"></script>
+
+
+{% for message in form.username.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+   
+   
+  {% for message in form.email.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+   
+  {% for message in form.password.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+<form name="message" action="{{ url_for('signup') }}" method="post">
+<body>
+		
+		<div id="Heading">Coffee-Klatch	</div>
+		<div id="SubHeading">&nbsp;&nbsp;&nbsp;Meeting over a coffee ...!!</div>
+		<a href ="{{ url_for('login') }}"><div id="signin">Already a member ?
+			<input type="button"name="signin" value="Sign In"  style="font-size:15px"/></a>
+			
+		</div>
+
+		<div id="signupinfo">	
+					<table cellpadding="6">
+					    
+						{{ form.hidden_tag() }}
+						
+					<th colspan="2" style="font-size:40px">
+						Sign Up 
+					</th>
+					
+						<tr>
+							<td align="right">
+								{{ form.username.label }}
+								    {{ form.username }}
+							</td>
+						</tr>
+						<tr>
+							<td align="right">
+								{{ form.email.label }}
+								    {{ form.email }}
+							</td>
+						</tr>
+						<tr>
+							<td align="right">
+								{{ form.password.label }}
+								    {{ form.password }}
+							</td>
+						</tr>
+
+
+						<td>
+						{{form.submit}}
+						<tr>
+							</td>
+						</tr>
+					</table>		
+				</div>
+					
+			
+		
+					
+		
+</body>
+</form>
+</html>

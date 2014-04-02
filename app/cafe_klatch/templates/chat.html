@@ -1,0 +1,79 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Coffee Klatch</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<style type="text/css">
+    .gradientBoxesWithOuterShadows { 
+		height: 500px;
+		width: 800px; 
+		padding: 20px;
+		background-color: white; 
+
+		/* outer shadows  (note the rgba is red, green, blue, alpha) */
+		-webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4); 
+		-moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+
+		/* rounded corners */
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 7px; 
+		border-radius: 7px;
+
+		/* gradients */
+		background: -webkit-gradient(linear, left top, left bottom, 
+		color-stop(0%, white), color-stop(15%, white), color-stop(100%, #B3B3B3)); 
+		background: -moz-linear-gradient(#244b56 4%, #E8E8E8 0%, #E8E8E8 55%, #A9A9A9 130%); 
+		}
+    </style>
+
+{% include "top_section.html" %}
+
+<link href={{url_for('static', filename="styles/templatemo_style.css")}} rel="stylesheet" type="text/css" >
+</head>
+<form name="matches" action="" method="post" >
+<body>
+	
+    <div id="templatemo_middle_section">
+    	<div class="templatemo_container">
+			<div class="templatemo_content_area">
+			<div class="templatemo_three_col ">
+				<div class="gradientBoxesWithOuterShadows" style="overflow:auto;">
+
+
+
+				{% for x in user %}
+
+				{% if(x.From == username) %}	
+				me : {{x.message}}	<br/>									
+					{{x.sent}}<br/>
+ 				{% else %}
+ 				<br/>	
+				 {{x.From}} : {{x.message}} <br/>
+ 
+				 {{x.sent}}<br/>
+				 {% endif %}
+				{%endfor%}
+		
+				 </div>
+			</div>
+            <div class="cleaner"></div>
+            </div>
+        </div><!-- End Of Container  -->
+    </div><!-- End Of Mid Section -->
+
+    <div id="templatemo_middle_section_2">
+    	<div class="templatemo_container">
+        	<div id="templatemo_middle_content">
+
+			    <div class="cleaner"></div>
+            </div>
+	    </div><!-- End Of Container  -->
+    </div><!-- End Of Mid Section 2 -->
+
+	<div id="templatemo_footer">
+      	Copyright © 2014 <a href="#">Nikhil Sri-Harsha Jasmeet</a>      
+    </div>
+	
+</body>
+</html>

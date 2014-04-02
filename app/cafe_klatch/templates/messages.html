@@ -1,0 +1,75 @@
+<html>
+<head>
+  	<meta charset="UTF-8">
+  	<title>Cafe_Klatch</title>
+  	<link href='{{url_for('static', filename = "slider/style.css")}}' rel="stylesheet" type="text/css" />
+	<link href='{{url_for('static', filename = "styles/templatemo_style.css")}}' rel="stylesheet" type="text/css" />
+	<script type="text/javascript" src='{{url_for('static', filename = "slider/szcript.js")}}'></script>
+
+
+</head>
+
+<form name="message"  method="post" >
+
+<body>
+	
+	{% include "top_section.html" %}
+	<div id="templatemo_middle_section" style="height:360px">
+		<div class="templatemo_container">
+			<div class="templatemo_content_area">
+			
+			{% for ID in form.rsorted_matches %}
+			
+			{% if ID[0].userid in result_fin %}
+				{%   if loop.index == 4  %}
+					<div class="cleaner"></div>
+					</div>
+						</div><!-- End Of Container  -->
+							</div><!-- End Of Mid Section -->
+					
+					<div id="templatemo_middle_section_2" >
+						<div class="templatemo_container">
+							<div id="templatemo_middle_content">
+								
+				{% endif %}
+
+				 <div class="templatemo_three_col ">
+					
+										
+					<div style=\"height:8px;font-size:1px;\">&nbsp;</div>
+					<a href = "chathistory?to={{ID[0].userid}}" >
+					<center>
+					<img  onload="drawszlider(100,{{ID[1]}},{{loop.index0}})" src="{{url_for('static', filename = "uploads/")}}{{ID[0].imagename}}" height="210px" alt="Template" onclick="chatWith('{{ID[0].userid}}')"/>
+					</center>
+					
+					
+					{# {% session['to']=ID[0].userid %}	#}			
+					<h1>
+					{#
+					{% if type(session) is dict %}
+					{{ session }}
+					{% endif %} #}
+					</h1>
+					<div style="color:white; text-align:center; font-size: 20px; font-family: 'Times New Roman';">
+						{{ID[0].userid}}
+					</div> 
+					</a>
+				</div>						
+
+			{% endif %}	
+			{% endfor %}<br/>
+
+
+			<div class="cleaner"></div>
+			</div>
+		</div><!-- End Of Container  -->
+	</div><!-- End Of Mid Section -->
+									
+              
+
+	<div id="templatemo_footer">
+      	Copyright © 2014 <a href="#">Nikhil Sri-Harsha Jasmeet</a>      
+    </div>
+	
+</body>
+</form>

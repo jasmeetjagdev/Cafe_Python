@@ -1,0 +1,381 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Cafe Klatch</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+<link href={{url_for('static', filename="styles/templatemo_style.css")}} rel="stylesheet" type="text/css" >
+
+<link type="text/css" rel="stylesheet" href={{url_for('static', filename= "css/styles/form.css")}}>
+
+<script language="javascript" type="text/javascript">
+//$(function(){
+//				$("div.templatemo_gallery img").fullsize();
+//			});
+
+function clicked(button){
+document.getElementById("button_hidden").value=button;
+document.getElementById("set_profile").submit();
+} 
+</script>
+</head>
+<form name="set_profile" action="{{ url_for('edit_profile')}}" method="post" enctype="multipart/form-data">
+
+<body>
+<input type="hidden" name="hidden" value="set_profile"/>
+<input type="hidden" id="button_hidden" name="button_hidden" >
+{% include "top_section.html" %}
+    <div id="templatemo_middle_section">
+    	<div class="templatemo_container">
+			<div class="templatemo_content_area">
+                
+
+				<div class="templatemo_three_col ">
+				
+					<table style="color:white">
+						<tr>
+							<td style="font-size:1.5em; padding-bottom:10px">	
+							</td>
+						</tr>
+						<tr>
+							<td>
+							<img src="{{url_for('static', filename= "uploads/")}}{{session['imagename']}}" height="200" /> 
+							<input type="file" id="imgfile" name="imgfile" file-accept="jpg, jpeg, png, gif" file-maxsize="500" />
+							<input type="submit" value="Upload"/>							
+							</td>
+						</tr>
+						
+					</table>
+				   
+                </div>
+				
+				<div class="templatemo_three_col middle_col">
+					<h1 style="text-align:left">Welcome, {{ session['userid']}} !</h1>
+					<table style="color:white; font-size:15px" >					   
+						<tr>
+							<td>
+							 Full Name
+							</td>
+							<td>
+								{{ form.fullname }}
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Birthdate:
+							</td>
+							<td>{{form.bday}}</td>
+						</tr>			
+						<tr>
+							<td>
+								Country:
+							</td>
+							<td> {{ form.country}}</td>
+						</tr>
+						<tr>
+							<td>
+								Zip Code:
+							</td>
+							<td>{{ form.zipcode }}</td>
+						</tr>
+						<tr>
+							<td>
+								Email Address:
+							</td>
+							<td><input type="text" name="email" id="email" value="{{session['email']}}" readonly/> </td>
+						</tr>
+						<tr>
+							<td>
+								Gender
+							</td>
+							<td>
+							{{form.gender}}
+							</td>
+						</tr>
+					</table>
+                </div>
+  
+				<div class="templatemo_three_col right_col">
+					<table style="color:white ; margin-top:32px; font-size:15px">
+						<tr>
+							<td>
+								Height:
+							</td>
+						<td>{{form.heightfeet}} Feet&nbsp;
+						{{form.heightinches}} Inches										
+						</td>
+						</tr>
+						<tr>
+							<td>Zodiac:</td>
+							<td>
+								{{form.zodiac}}
+							</td>
+						</tr>
+						<tr>
+							<td>Smokes:</td>
+							<td>
+								{{form.smoke}}
+							</td>
+						</tr>
+						<tr>
+							<td>Drinks:</td>
+							<td>
+								{{form.drink}}
+							</td>
+						</tr>
+						<tr>
+							<td>Diet:</td>
+							<td>
+								{{form.diet}}
+							</td>
+						</tr>
+						<tr>
+							<td>I am :</td>
+							<td>
+								{{form.marital}}
+							</td>
+						</tr>
+					</table>
+                </div>
+             <div class="cleaner"></div>
+            </div>
+        </div><!-- End Of Container  -->
+    </div><!-- End Of Mid Section -->
+
+    <div id="templatemo_middle_section_2">
+    	<div class="templatemo_container">
+        	<div id="templatemo_middle_content">
+				
+				<div class="templatemo_three_col left_col bottom_section">
+					<div class="templatemo_title">
+                    	<h1>Stuff About Me </h1>
+                    </div>
+					
+					<table style="color:white; font-size:15px" >
+						<tr>
+							<td>
+							  My nature ...                  
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  {{ form.c1_nature(rows=4,cols=30) }}</textarea>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							5 Things I could never do without ...
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  {{ form.c1_never(rows=4,cols=30) }}</textarea>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  5 places for spending Friday Nights  ...                
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  {{ form.c1_friday(rows=4,cols=30) }}
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  5 Most important things in my life ...                 
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							{{ form.c1_mostimp(rows=4,cols=30) }}
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  For me life is ... 
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  {{ form.c1_life(rows=4,cols=30) }}	
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  For me friends are ...                   
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							{{ form.c1_friends (rows=4,cols=30)}}
+							</td>							
+						</tr>
+					</table>
+					
+				</div>
+                
+                <div class="templatemo_three_col bottom_section bottom_middle_col">
+                  	<div class="templatemo_title">
+                    	<h1>My Favourites</h1>
+                    </div>
+                    
+                    <div class="templatemo_three_col left_col">
+					<table style="color:white; font-size:15px" >
+						<tr>
+							<td>
+							  Food :                
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  {{ form.c2_food(rows=4,cols=30) }}
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								Movies :
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  {{ form.c2_movies(rows=4,cols=30) }}
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  Books :                
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  {{ form.c2_books(rows=4,cols=30) }}	
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  Sports :                 
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  {{ form.c2_sports(rows=4,cols=30) }}
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  Tourist spots : 
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  {{ form.c2_tour(rows=4,cols=30) }}			
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  Hangouts with friends :                   
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  	{{ form.c2_hangout(rows=4,cols=30) }}
+							</td>							
+						</tr>
+						<tr>
+							<td align="center" style="padding:20px">
+							  <button onclick="clicked('save');"  style="font-size:18px" >Save Profile</button>
+							  <!--<button onclick="clicked('upload');">Upload</button>-->
+							</td>							
+						</tr>
+					</table>
+					
+					</div>
+                </div>
+            
+            	<div class="templatemo_three_col right_col bottom_section">
+                	<div class="templatemo_title">
+                    	<h1>My Ideas</h1>
+                    </div>
+                    <table style="color:white; font-size:15px" >
+						<tr>
+							<td>
+							  About Marriage :                
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  	{{ form.c3_marriage(rows=4,cols=30) }}
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  Love at First site : 
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  {{ form.c3_love(rows=4,cols=30) }}
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								About Parenthood :
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							{{ form.c3_parenthood(rows=4,cols=30) }}
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  About Honesty :                
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								{{ form.c3_honesty(rows=4,cols=30) }}
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  About an ideal world:                 
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  {{ form.c3_world(rows=4,cols=30) }} 
+							</td>							
+						</tr>
+						
+						<tr>
+							<td>
+							  Keeping pets :                   
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							 
+									{{form.c3_pets(rows=4,cols=30)}}
+							</td>							
+						</tr>
+					</table>
+					
+                </div>
+                
+				<div class="cleaner"></div>
+				
+            </div>
+	    </div><!-- End Of Container  -->
+    </div><!-- End Of Mid Section 2 -->
+
+	<div id="templatemo_footer">
+      	Copyright © 2014 <a href="#">Nikhil Sri-Harsha Jasmeet</a>      
+    </div>
+	
+</body>
+
+</form>
+</html>

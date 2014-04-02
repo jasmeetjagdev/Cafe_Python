@@ -1,0 +1,535 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Coffee Klatch</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+
+
+
+<link href={{url_for('static', filename="styles/templatemo_style.css")}} rel="stylesheet" type="text/css" >
+
+<link type="text/css" rel="stylesheet" href={{url_for('static', filename= "css/styles/form.css")}}>
+
+
+<script type=text/javascript src={{url_for('static',filename = 'fullsize/jquery.js')}}></script>
+
+
+<script type="text/javascript" src="{{url_for('static',filename ='fullsize/jquery.fullsize.minified.js')}}"></script>
+<script language="javascript" type="text/javascript">
+//$(function(){
+//				$("div.templatemo_gallery img").fullsize();     
+//			});
+</script>
+</head>
+<form name="view_profile" action="edit_profile" method="post" enctype="multipart/form-data">
+
+<body>
+<input type="hidden" name="hidden" value="view_profile"/>
+	{% include "top_section.html" %}
+    <div id="templatemo_middle_section">
+    	<div class="templatemo_container">
+			<div class="templatemo_content_area">
+                
+
+				<div class="templatemo_three_col ">
+				
+					<table style="color:white">
+						<tr>
+							<td style="font-size:1.5em; padding-bottom:10px">								
+							</td>
+						</tr>
+						<tr>
+							<td>
+							<img src="{{url_for('static', filename= "uploads/")}}{{user.imagename}}" height="200" /> 								
+							</td>
+						</tr>
+						<tr>
+							<td style="font-size:1.5em; padding-bottom:10px; text-align:center">
+								<input type="submit" value="Edit Profile"/>							
+							</td>
+						</tr>
+						
+					</table>
+				   
+                </div>
+
+				<div class="templatemo_three_col middle_col">
+					
+					<!--<h1 style="text-align:left">Edit Profile </h1>  <button> Edit Profile</button><?php //echo $_SESSION['userid']; ?> !</h1> -->
+					<table style="color:white; margin-top:18px;font-size:15px" cellpadding="5">
+						<tr>
+							<td>
+							 <div class="fieldname">Full Name</div>
+							</td>
+							<td>
+								: {{ user.fullname }}
+							</td>
+						</tr>
+						<tr>
+							<td><div class="fieldname">
+								Birthdate
+							</div></td>
+							<td>: {{user.bday}}</td>
+						</tr>			
+						<tr>
+							<td><div class="fieldname">
+								Country
+							</div></td>
+							<td>: {{ user.country}}</td>
+						</tr>
+						<tr>
+							<td><div class="fieldname">
+								Zip Code
+							</div></td>
+							<td>: {{ user.zipcode }}</td>
+						</tr>
+						<tr>
+							<td><div class="fieldname">
+								Email Address
+							</div></td>
+							<!--<td><?php echo ": ".$_SESSION['email']; ?></td> -->
+						</tr>
+						<tr>
+							<td><div class="fieldname">
+								Gender
+							</div></td>
+							<td>
+							: {{ user.gender }}							
+							</td>
+						</tr>
+						
+					</table>
+                </div>
+  
+				<div class="templatemo_three_col right_col">
+					<table style="color:white ; margin-top:18px; font-size:15px" cellpadding="5">
+						<tr>
+							<td><div class="fieldname">
+								Height
+							</div></td>
+						<td>
+							: {{ user.heightfeet }}'{{ user.heightinches }}"
+						</td>
+						</tr>
+						<tr>
+							<td><div class="fieldname">Zodiac</div></td>
+							<td>: 
+									{% if user.zodiac == '1' %} Leo   {% endif %}
+									{% if user.zodiac == '2' %} Virgo   {% endif %}
+									{% if user.zodiac == '3' %} Aquarius   {% endif %}
+									{% if user.zodiac == '4' %} Aries   {% endif %}
+									{% if user.zodiac == '5' %} Scorpio   {% endif %}
+									{% if user.zodiac == '6' %} Capricon   {% endif %}
+									{% if user.zodiac == '7' %} Sagittarius   {% endif %}
+									{% if user.zodiac == '8' %} Taurus   {% endif %}
+									{% if user.zodiac == '9' %} Pisces   {% endif %}
+									{% if user.zodiac == '10' %} Cancel   {% endif %}
+								
+							</td>
+						</tr>
+						<tr>
+							<td><div class="fieldname">Smokes</div></td>
+							<td>: 
+									{% if user.smoke == 'Y' %} No   {% endif %}
+									{% if user.zodiac == 'N' %} Yes   {% endif %}
+							</td>
+						</tr>
+						<tr>
+							<td><div class="fieldname">Drinks</div></td>
+							<td>: 
+								
+									{% if user.drink == 'N' %} Not at all   {% endif %}
+									{% if user.drink == 'R' %} Rarely   {% endif %}
+									{% if user.zodiac == 'S' %} Socially   {% endif %}
+									{% if user.zodiac == 'O' %} Very often   {% endif %}
+								
+							</td>
+						</tr>
+						<tr>
+							<td><div class="fieldname">Diet</div></td>
+							<td>: 
+									{% if user.diet == 'V' %} Vegetarian   {% endif %}
+									{% if user.diet == 'N' %} Non Vegetarian   {% endif %}
+									
+							</td>
+						</tr>
+						<tr>
+							<td><div class="fieldname">I am </div></td>
+							<td>: 
+									{% if user.martial == 'S' %} Single   {% endif %}
+									{% if user.martial == 'L' %} Seeing Someone   {% endif %}
+									{% if user.martial == 'M' %} Married   {% endif %}
+							</td>
+						</tr>
+					</table>
+                </div>
+				
+				
+             <div class="cleaner"></div>
+            </div>
+			
+        </div><!-- End Of Container  -->
+    </div><!-- End Of Mid Section -->
+
+    <div id="templatemo_middle_section_2">
+    	<div class="templatemo_container">
+        	<div id="templatemo_middle_content">
+				
+				<div class="templatemo_three_col left_col bottom_section">
+					
+					<div class="templatemo_title" style="color:#d1d1d1; font-size:25px; font-family:Times New Roman;">
+                    	Stuff About Me 
+                    </div>
+					
+					<table style="color:white; font-size:15px;" >
+						<tr>
+							<td>
+							  <h2>My nature ...</h2>                  
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								<div class="templatemo_quote_open">
+									<div class="templatemo_quote_close">
+										<div class="cleaner_width_left"></div>
+										{{ user.c1_nature }}								
+										<div class="cleaner_width_right"></div>
+									</div>
+								</div>
+							  
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							<h2>5 Things I could never do without ...</h2>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								<div class="templatemo_quote_open">
+										<div class="templatemo_quote_close">
+											<div class="cleaner_width_left"></div>
+											<p>{{ user.c1_never }}</p>									
+											<div class="cleaner_width_right"></div>
+										</div>
+									</div>
+							  
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <h2>5 places for spending Friday Nights  ...</h2>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								<div class="templatemo_quote_open">
+									<div class="templatemo_quote_close">
+										<div class="cleaner_width_left"></div>
+										<p>{{ user.c1_friday }}</p>									
+										<div class="cleaner_width_right"></div>
+									</div>
+								</div>
+							  
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <h2>5 Most important things in my life ...</h2>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								<div class="templatemo_quote_open">
+									<div class="templatemo_quote_close">
+										<div class="cleaner_width_left"></div>
+										<p>{{ user.c1_mostimp }}</p>									
+										<div class="cleaner_width_right"></div>
+									</div>
+								</div>
+							  
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <h2>For me life is ... </h2>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								<div class="templatemo_quote_open">
+									<div class="templatemo_quote_close">
+										<div class="cleaner_width_left"></div>
+										<p>{{ user.c1_life }}</p>									
+										<div class="cleaner_width_right"></div>
+									</div>
+								</div>
+							  
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <h2>For me friends are ...</h2>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								<div class="templatemo_quote_open">
+									<div class="templatemo_quote_close">
+										<div class="cleaner_width_left"></div>
+										<p>{{ user.c1_friends }}</p>									
+										<div class="cleaner_width_right"></div>
+									</div>
+								</div>
+							  
+							</td>							
+						</tr>
+					</table>
+					
+				</div>
+                
+                <div class="templatemo_three_col bottom_section bottom_middle_col">
+                  	
+					<div class="templatemo_title" style="color:#d1d1d1; font-size:25px; font-family:Times New Roman;">
+                    	My Favourites
+                    </div>
+					
+                    <div class="templatemo_three_col left_col">
+					<table style="color:white; font-size:15px" >
+						<tr>
+							<td>
+							  <h2>Food :</h2>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								<div class="templatemo_quote_open">
+									<div class="templatemo_quote_close">
+										<div class="cleaner_width_left"></div>
+										<p>{{ user.c2_food }}</p>									
+										<div class="cleaner_width_right"></div>
+									</div>
+								</div>							  
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								<h2>Movies :</h2>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								<div class="templatemo_quote_open">
+									<div class="templatemo_quote_close">
+										<div class="cleaner_width_left"></div>
+										<p>{{ user.c2_movies }}</p>									
+										<div class="cleaner_width_right"></div>
+									</div>
+								</div>							  
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <h2>Books :</h2>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <div class="templatemo_quote_open">
+									<div class="templatemo_quote_close">
+										<div class="cleaner_width_left"></div>
+										<p>{{ user.c2_books }}</p>									
+										<div class="cleaner_width_right"></div>
+									</div>
+								</div>
+							  </td>							
+						</tr>
+						<tr>
+							<td>
+							  <h2>Sports :</h2>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								<div class="templatemo_quote_open">
+									<div class="templatemo_quote_close">
+										<div class="cleaner_width_left"></div>
+										<p>{{ user.c2_sports }}</p>									
+										<div class="cleaner_width_right"></div>
+									</div>
+								</div>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <h2>Tourist spots : </h2>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <div class="templatemo_quote_open">
+									<div class="templatemo_quote_close">
+										<div class="cleaner_width_left"></div>
+										<p>{{ user.c2_tour }}</p>									
+										<div class="cleaner_width_right"></div>
+									</div>
+								</div>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <h2>Hangouts with friends :</h2>                   
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								<div class="templatemo_quote_open">
+									<div class="templatemo_quote_close">
+										<div class="cleaner_width_left"></div>
+										<p>{{ user.c2_hangout }}</p>									
+										<div class="cleaner_width_right"></div>
+									</div>
+								</div>
+							  <textarea style="visibility:hidden;"id="input_25" cols="30" rows="4"  name="c2_hangout" id="c2_hangout"></textarea>
+							</td>							
+						</tr>
+						
+					</table>
+					
+					</div>
+                </div>
+            
+            	<div class="templatemo_three_col right_col bottom_section">
+                	
+					<!--<div class="templatemo_title" style="text-align:center;border-radius:15px;background:#d1d1d1 ;color:Black; font-size:20px; font-family:Comic Sans MS;">
+                    	My Ideas
+                    </div>-->
+					
+					
+					<div class="templatemo_title" style="color:#d1d1d1; font-size:25px; font-family:Times New Roman;">
+                    	My Ideas
+                    </div>
+					
+                    <table style="color:white; font-size:15px" >
+						<tr>
+							<td>
+							  <h2>About Marriage :</h2>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								<div class="templatemo_quote_open">
+									<div class="templatemo_quote_close">
+										<div class="cleaner_width_left"></div>
+										<p>{{ user.c3_marriage }}</p>									
+										<div class="cleaner_width_right"></div>
+									</div>
+								</div>
+							  
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <h2>Love at First sight :</h2> 
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								<div class="templatemo_quote_open">
+									<div class="templatemo_quote_close">
+										<div class="cleaner_width_left"></div>
+										<p>{{ user.c3_love }}</p>									
+										<div class="cleaner_width_right"></div>
+									</div>
+								</div>
+							  
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								<h2>About Parenthood :</h2>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								<div class="templatemo_quote_open">
+									<div class="templatemo_quote_close">
+										<div class="cleaner_width_left"></div>
+										<p>{{ user.c3_parenthood }}</p>									
+										<div class="cleaner_width_right"></div>
+									</div>
+								</div>
+							  
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <h2>About Honesty :</h2>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								<div class="templatemo_quote_open">
+									<div class="templatemo_quote_close">
+										<div class="cleaner_width_left"></div>
+										<p>{{ user.c3_honesty }}</p>									
+										<div class="cleaner_width_right"></div>
+									</div>
+								</div>
+							  
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <h2>About an ideal world: </h2>                 
+							</td>							
+						</tr>
+						<tr>
+							<td>
+									<div class="templatemo_quote_open">
+									<div class="templatemo_quote_close">
+										<div class="cleaner_width_left"></div>
+										<p>{{ user.c3_world }}</p>									
+										<div class="cleaner_width_right"></div>
+									</div>
+								</div>
+							  
+							</td>							
+						</tr>
+						
+						<tr>
+							<td>
+							  <h2>Keeping pets : </h2>                   
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <div class="templatemo_quote_open">
+									<div class="templatemo_quote_close">
+										<div class="cleaner_width_left"></div>
+										<p>{{ user.c3_pets }}</p>									
+										<div class="cleaner_width_right"></div>
+									</div>
+								</div>
+							  <textarea style="visibility:hidden;" cols="30" rows="4" ></textarea>
+							</td>							
+						</tr>
+					</table>
+					
+                </div>
+                
+				<div class="cleaner"></div>
+				
+            </div>
+	    </div><!-- End Of Container  -->
+    </div><!-- End Of Mid Section 2 -->
+
+	<div id="templatemo_footer">
+      	Copyright © 2014 <a href="#">Nikhil Sri-Harsha Jasmeet</a>      
+    </div>
+	
+</body>
+
+</form>
+</html>

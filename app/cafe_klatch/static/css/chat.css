@@ -1,0 +1,109 @@
+
+@charset "utf-8";
+html, body {
+    margin: 0;
+    #overflow: hidden;
+}
+#main_container {
+    background-color: #FFFFFF;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: absolute;
+    width: 100%;
+}
+.chatbox {
+    display: none;
+    position: fixed;
+    width: 225px;
+}
+.chatboxhead {
+    background-color: #346C7C;
+    border-left: 1px solid #346C7C;
+    border-right: 1px solid #346C7C;
+    color: #FFFFFF;
+    padding: 7px;
+}
+.chatboxblink {
+    background-color: #176689;
+    border-left: 1px solid #176689;
+    border-right: 1px solid #176689;
+}
+.chatboxcontent {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #EEEEEE;
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    color: #333333;
+    font-family: arial,sans-serif;
+    font-size: 13px;
+    height: 200px;
+    line-height: 1.3em;
+    overflow: auto;
+    padding: 7px;
+    width: 209px;
+}
+.chatboxinput {
+    background-color: #FFFFFF;
+    border-bottom: 1px solid #CCCCCC;
+    border-left: 1px solid #CCCCCC;
+    border-right: 1px solid #CCCCCC;
+    padding: 5px;
+}
+.chatboxtextarea {
+    border: 1px solid #EEEEEE;
+    height: 44px;
+    margin: 1px;
+    overflow: hidden;
+    padding: 3px 0 3px 3px;
+    width: 206px;
+}
+.chatboxtextareaselected {
+    border: 2px solid #346C7C;
+    margin: 0;
+}
+.chatboxmessage {
+    margin-left: 1em;
+}
+.chatboxinfo {
+    color: #666666;
+    margin-left: -1em;
+}
+.chatboxmessagefrom {
+    font-weight: bold;
+    margin-left: -1em;
+}
+.chatboxmessagecontent {
+}
+.chatboxoptions {
+    float: right;
+}
+.chatboxoptions a {
+    color: #FFFFFF;
+    font-family: Verdana,Arial,"Bitstream Vera Sans",sans-serif;
+    font-weight: bold;
+    text-decoration: none;
+}
+.chatboxtitle {
+    float: left;
+}
+.gradientBoxesWithOuterShadows { 
+		height: 200px;
+		width: 400px; 
+		padding: 20px;
+		background-color: white; 
+
+		/* outer shadows  (note the rgba is red, green, blue, alpha) */
+		-webkit-box-shadow: 0px 0px 12px rgba(0, 0, 0, 0.4); 
+		-moz-box-shadow: 0px 1px 6px rgba(23, 69, 88, .5);
+
+		/* rounded corners */
+		-webkit-border-radius: 12px;
+		-moz-border-radius: 7px; 
+		border-radius: 7px;
+
+		/* gradients */
+		background: -webkit-gradient(linear, left top, left bottom, 
+		color-stop(0%, white), color-stop(15%, white), color-stop(100%, #D7E9F5)); 
+		background: -moz-linear-gradient(top, white 0%, white 55%, #D5E4F3 130%); 
+		}

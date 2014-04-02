@@ -1,0 +1,86 @@
+<style type="text/css">
+
+#top_row {	
+	height:70%;
+}
+#bottom_row {
+	height:30%;
+}
+
+#cafe_logo{
+	
+	
+	height:100%;
+}
+
+#userlogo{
+	float:left;
+	width:100%;
+	height:75;
+}
+#bottom_name{
+	margin: 0 0 0 23;
+	width:180;
+	height:25%;
+}
+#bottom_menu{
+	float:right;
+	width:50%;
+	height:100%;
+}
+#section1{
+	float:left;
+	width:15%;
+	height:100%;
+}
+#section2{
+	float:left;
+	width:35%;
+	height:100%;
+}
+#section3{
+	float:left;
+	width:50%;
+	height:100%;
+	
+}
+
+
+</style>
+
+
+<div id="templatemo_top_section">
+    	<div class="templatemo_container">
+		<div id="templatemo_header">
+				
+				<a href="view_profile" style="font-size:20px;"> 
+					<div id="section1">
+							
+							<div id="userlogo">								
+							<img src="{{url_for('static', filename = "uploads/")}}{{session['imagename']}}" alt="My Picture"  height=55px; style="margin:55 0 0 25;border:2px solid; float:none;"/>
+							</div>
+							
+					</div>
+				</a>
+					<div id="section2">
+						<div id="templatemo_logo_area" ">
+							<a href="matches" style="color:#D1D1D1;font-size:65px; ">Cafe Klatch</a>
+						</div>
+					</div>
+					<div id="section3">
+					<div style="font-size:15px;color:#84C7d7; "><b>Welcome, {{session['userid']}} !</b></div>
+						<div id="templatemo_menu">
+							<ul>
+							   <li><a href="matches" >Matches</a></li>
+								<li><a href="message">Messages</a></li>
+								<li><a href="view_profile">My Profile</a></li>
+								<li><a href="blocked_contact">Blocked</a></li>                        
+								<li><a href="logout">Logout</a></li>								
+							</ul> 
+						</div>
+					</div>
+                
+            
+		</div>
+		</div><!-- End Of Container -->    
+    </div><!-- End Of Top Section -->

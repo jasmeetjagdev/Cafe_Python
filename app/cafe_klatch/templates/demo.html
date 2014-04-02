@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Flask App</title>    
+  </head>
+  <body>
+   
+    <header>
+      <div class="container">
+        <h1 class="logo">Flask App</h1>
+      </div>
+    </header> 
+     
+    <div class="container">  <h2>Sign up</h2>
+ 
+  {% for message in form.firstname.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+   
+  {% for message in form.lastname.errors %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+   
+   
+  <form action="{{ url_for('demo') }}" method=post>
+    {{ form.hidden_tag() }}
+     
+    {{ form.firstname.label }}
+    {{ form.firstname }}
+     
+    {{ form.lastname.label }}
+    {{ form.lastname }}
+     
+     
+    {{ form.submit }}
+  </form>
+  
+</div>
+     
+  </body>
+</html>   

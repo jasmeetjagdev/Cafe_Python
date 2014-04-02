@@ -1,0 +1,14 @@
+<link type="text/css" rel="stylesheet" media="all" href='{{url_for('static', filename = "css/chat.css")}}' />
+<link type="text/css" rel="stylesheet" media="all" href='{{url_for('static', filename = "css/screen.css")}}' />
+<script type=text/javascript
+  src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type=text/javascript>
+  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+
+<script type="text/javascript" src='{{url_for('static', filename = "js/jquery.js")}}'></script>
+<script type="text/javascript" src='{{url_for('static', filename = "js/chat.js")}}'></script>
+
+<!--[if lte IE 7]>
+<link type="text/css" rel="stylesheet" media="all" href="css/screen_ie.css" />
+<![endif]-->

@@ -1,0 +1,448 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Coffee Klatch</title>
+<meta name="keywords" content="" />
+<meta name="description" content="" />
+
+<link href='{{url_for('static', filename = "css/templatemo_style.css")}}'   rel="stylesheet" type="text/css" />
+<link type="text/css" rel="stylesheet" href= '{{url_for('static', filename = "css/styles/form.css?v3.2.627")}}'/>
+
+script>
+<script language="javascript" type="text/javascript">
+$(function(){
+				$("div.templatemo_gallery img").fullsize();
+			});
+</script>
+</head>
+
+
+
+<body>
+		<div id="templatemo_top_section">
+    	<div class="templatemo_container">
+    		
+            	<div id="templatemo_logo_area">
+                	<h2><a href="http://www.templatemo.com/" target="_parent">Coffee Klatch</a></h2>
+                    <p></p>
+                </div>
+                
+                <div id="templatemo_top_right">
+	                <div id="templatemo_subscribe">    	            	
+                	</div>
+                    <div id="templatemo_social">
+                    	
+                    </div>
+				</div>
+                
+                <div id="templatemo_menu">
+                    <ul>
+                        <li><a href="matches.html">Matches</a></li>
+                        <li><a href="messages.html" >Messages</a></li>
+                        <li><a href="set_profile.html" class="current">My Profile</a></li>                        
+                        <li><a href="{{ url_for('signout') }}">Logout</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul> 
+            	</div>
+            
+		</div><!-- End Of Container -->    
+    </div><!-- End Of Top Section -->
+    
+    <div id="templatemo_middle_section">
+    	<div class="templatemo_container">
+			<div class="templatemo_content_area">
+                
+
+				<div class="templatemo_three_col left_col">
+					<table style="color:white">
+						<tr>
+							<td style="font-size:1.5em; padding-bottom:10px">	
+							Upload Photo:
+							</td>
+						</tr>
+						<tr>
+							<td>					
+							<img src="images/girl.png" height="130"/>
+							</td>
+						</tr>
+						<tr>
+							<td>					
+							  <input type="file" file-accept="jpg, jpeg, png, gif" file-maxsize="500" />
+							</td>
+						</tr>
+					</table>
+				    
+                </div>
+				
+				<div class="templatemo_three_col middle_col">
+					<h1 style="text-align:left">My Profile</h1>
+					<table style="color:white; font-size:15px" >
+						<tr>
+							<td>
+							  Name<span class="form-required">*</span>
+							</td>
+							<td>
+								<input type="text"/>
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Birthdate:
+							</td>
+							<td><input type="date" name="bday" id="bday" /></td>
+						</tr>			
+						<tr>
+							<td>
+								Country:
+							</td>
+							<td> <input type="text" name="country" id="country" /></td>
+						</tr>
+						<tr>
+							<td>
+								Zip Code:
+							</td>
+							<td><input type="text" name="zipcode" id="zipcode" /></td>
+						</tr>
+						<tr>
+							<td>
+								Email Address:
+							</td>
+							<td><input type="email" name="email" id="email" /></td>
+						</tr>
+						<tr>
+							<td>
+								Gender
+							</td>
+							<td>
+							<input type="radio" id="input_32_0" name="gender" value="Male" />
+							Male <br/>
+							<input type="radio" id="input_32_1" name="gender" value="Female" />
+							Female
+							</td>
+						</tr>
+						
+					</table>
+                </div>
+  
+				<div class="templatemo_three_col right_col">
+					<table style="color:white ; margin-top:32px; font-size:15px">
+						<tr>
+							<td>
+								Height:
+							</td>
+						<td><select class="form-dropdown" style="width:50px">
+								<option value="NA">  </option>
+								<option value="3"> 3 </option>
+								<option value="4"> 4 </option>
+								<option value="5"> 5 </option>
+								<option value="6"> 6 </option>
+								<option value="7"> 7 </option>
+						</select> Feet&nbsp;
+						<input type="number" min=0 max=11 name="inches"> Inches										
+						</td>
+						</tr>
+						<tr>
+							<td>Zodiac:</td>
+							<td>
+								<select class="form-dropdown" style="width:150px">
+									<option value="NA">  </option>
+									<option value="1"> Leo </option>
+									<option value="2"> Virgo </option>
+									<option value="3"> Aquarius </option>
+									<option value="4"> Aries </option>
+									<option value="5"> Scorpio </option>
+									<option value="6"> Capricorn </option>
+									<option value="7"> Sagittarius </option>
+									<option value="8"> Taurus </option>
+									<option value="9"> Pisces </option>
+									<option value="10"> Cancer </option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>Smokes:</td>
+							<td>
+								<select class="form-dropdown" style="width:150px">
+									<option value="NA">  </option>
+									<option value="yes"> Yes </option>
+									<option value="no"> No </option>
+									
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>Drinks:</td>
+							<td>
+								<select class="form-dropdown" style="width:150px">
+									<option value="NA">  </option>
+									<option value="never">Not at all</option>
+									<option value="rarely">Rarely</option>
+									<option value="socially">Socially</option>
+									<option value="often">Very often</option>
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>Diet:</td>
+							<td>
+								<select class="form-dropdown" style="width:150px">
+									<option value="NA">  </option>
+									<option value="yes">Vegetarian</option>
+									<option value="no">Non Vegetarian</option>
+									
+								</select>
+							</td>
+						</tr>
+						<tr>
+							<td>I am :</td>
+							<td>
+								<select class="form-dropdown" style="width:150px">
+									<option value="NA">  </option>
+									<option value="single">Single</option>
+									<option value="seeing">Seeing Someone</option>
+									<option value="married">Married</option>
+									
+								</select>
+							</td>
+						</tr>
+					</table>
+                </div>
+             <div class="cleaner"></div>
+            </div>
+        </div><!-- End Of Container  -->
+    </div><!-- End Of Mid Section -->
+
+    <div id="templatemo_middle_section_2">
+    	<div class="templatemo_container">
+        	<div id="templatemo_middle_content">
+				
+				<div class="templatemo_three_col left_col bottom_section">
+					<div class="templatemo_title">
+                    	<h1>Stuff About Me </h1>
+                    </div>
+					
+					<table style="color:white; font-size:15px" >
+						<tr>
+							<td>
+							  My nature ...                  
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <textarea id="input_25" cols="30" rows="4"></textarea>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							5 Things I could never do without ...
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <textarea id="input_25" cols="30" rows="4"></textarea>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  My idea of spending Friday Nights  ...                
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <textarea id="input_25" cols="30" rows="4"></textarea>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  5 Most important things in my life ...                 
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <textarea id="input_25" cols="30" rows="4"></textarea>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  For me life is ... 
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <textarea id="input_25" cols="30" rows="4"></textarea>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  For me friends are ...                   
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <textarea id="input_25" cols="30" rows="4"></textarea>
+							</td>							
+						</tr>
+					</table>
+					
+				</div>
+                
+                <div class="templatemo_three_col bottom_section bottom_middle_col">
+                  	<div class="templatemo_title">
+                    	<h1>My Favourites</h1>
+                    </div>
+                    
+                    <div class="templatemo_three_col left_col">
+					<table style="color:white; font-size:15px" >
+						<tr>
+							<td>
+							  Food :                
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <textarea id="input_25" cols="30" rows="4"></textarea>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							Movies :
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <textarea id="input_25" cols="30" rows="4"></textarea>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  Books :                
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <textarea id="input_25" cols="30" rows="4"></textarea>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  Sports :                 
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <textarea id="input_25" cols="30" rows="4"></textarea>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  Tourist spots : 
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <textarea id="input_25" cols="30" rows="4"></textarea>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  Hangouts with friends :                   
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <textarea id="input_25" cols="30" rows="4"></textarea>
+							</td>							
+						</tr>
+						<tr>
+							<td align="center" style="padding:20px">
+							  <button type="submit" style="font-size:18px"> Save Profile </button>
+							</td>							
+						</tr>
+					</table>
+					
+					</div>
+                </div>
+            
+            	<div class="templatemo_three_col right_col bottom_section">
+                	<div class="templatemo_title">
+                    	<h1>My Ideas</h1>
+                    </div>
+                    <table style="color:white; font-size:15px" >
+						<tr>
+							<td>
+							  About Marriage :                
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <textarea id="input_25" cols="30" rows="4"></textarea>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  Love at First site : 
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <textarea id="input_25" cols="30" rows="4"></textarea>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+								About Parenthood :
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <textarea id="input_25" cols="30" rows="4"></textarea>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  About Honesty :                
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <textarea id="input_25" cols="30" rows="4"></textarea>
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  About an ideal world:                 
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <textarea id="input_25" cols="30" rows="4"></textarea>
+							</td>							
+						</tr>
+						
+						<tr>
+							<td>
+							  Keeping pets :                   
+							</td>							
+						</tr>
+						<tr>
+							<td>
+							  <textarea id="input_25" cols="30" rows="4"></textarea>
+							</td>							
+						</tr>
+					</table>
+					
+                </div>
+                
+				<div class="cleaner"></div>
+				
+            </div>
+	    </div><!-- End Of Container  -->
+    </div><!-- End Of Mid Section 2 -->
+
+	<div id="templatemo_footer">
+      	Copyright © 2014 <a href="#">Nikhil Sri-Harsha Jasmeet</a>      
+    </div>
+	
+</body>
+</html>
