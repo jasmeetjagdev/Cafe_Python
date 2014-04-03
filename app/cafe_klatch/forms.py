@@ -8,7 +8,7 @@ from flask import session,jsonify,Response,json
 import operator
 import datetime,json,time 
 from sqlalchemy import create_engine
-import os
+import os,math
 from flask import Flask, request, redirect, url_for
 from werkzeug.utils import secure_filename
 
@@ -32,7 +32,7 @@ class SignupForm(Form):
         if not Form.validate(self):
             return False
 
-        user = Peer_UserStatus_Model.query.filter_by(username = self.username.data.lower()).first()
+        user = Peer_UserStatus_Model.query.filter_by(username = self.username.data).first()
         if user:
             self.email.errors.append("That UserID is already taken")
             return False
@@ -191,11 +191,6 @@ class MessagesForm(Form):
 
     
     def loadMessages(self):
-        #if not Form.validate(self):
-        #    return False
-        
-        
-        # 
         engine = create_engine('mysql://root:jasmeet@localhost/mysql')
         connection = engine.connect()
         result1 = connection.execute("Select `from` from (Select * FROM peer_chat WHERE `to` ='"+session['userid']+"' ) as T")
@@ -216,27 +211,8 @@ class MessagesForm(Form):
                 result_fin.append(row)
         
         self.result_fin =  list(set(result_fin))
-
-        #print result_fin
-                
-        
         connection.close()
         
-        user =db.session.query(User_Info_Model).filter(
-            User_Info_Model.userid ==(session['userid'])).first()
-        session['imagename']=user.imagename
-
-        self.matches =db.session.query(User_Info_Model).filter(
-            User_Info_Model.userid !=user.userid,User_Info_Model.gender != user.gender).all()
-      
-
-        self.row_match={} # structure (row: %match)
-        match=10
-        for m in self.matches:
-            match=match+10#calculateMatch(user.zodiac,m.zodiac)
-            self.row_match[m]=match
-                
-        self.rsorted_matches = sorted(self.row_match.iteritems(), key=operator.itemgetter(1),reverse=True)    
 
 class LoginForm(Form):
     #email = TextField("Email",  [validators.Required("Please enter your email address"), validators.Email("Invalid email address !!")])
@@ -262,6 +238,10 @@ class LoginForm(Form):
             self.password.errors.append('Invalid password')
             return False
 
+        if not user.isVerified == 1:
+            self.password.errors.append('User Not Verified ! ')
+            return False
+
         self.user = user
         return True
 
@@ -283,23 +263,87 @@ class MatchesForm(Form):
       
 
         self.row_match={} # structure (row: %match)
-        match=10
+        match=0
         counter=0
         for m in self.matches:
+            match=match+self.calculateMatch(user.country,m.country,5)
+            match=match+self.calculateMatch_height(user.heightfeet,user.heightinches,m.heightfeet,m.heightinches)
+            match=match+self.calculateMatch(user.zodiac,m.zodiac,5)
+            match=match+self.calculateMatch(user.smoke,m.smoke,5)
+            match=match+self.calculateMatch(user.drink,m.drink,5)
+            match=match+self.calculateMatch(user.diet,m.diet,5)
+            match=match+self.calculateMatch(user.marital,m.marital,5)
+            match=match+self.calculateMatch(user.c1_never,m.c1_never,5)
+            match=match+self.calculateMatch(user.c1_friday,m.c1_friday,5)
+            match=match+self.calculateMatch(user.c1_mostimp,m.c1_mostimp,5)
+            match=match+self.calculateMatch(user.c2_food,m.c2_food,10)
+            match=match+self.calculateMatch(user.c2_movies,m.c2_movies,10)
+            match=match+self.calculateMatch(user.c2_books,m.c2_books,10)
+            match=match+self.calculateMatch(user.c2_sports,m.c2_sports,10)
+            match=match+self.calculateMatch(user.c2_tour,m.c2_tour,5)
+            match=match+self.calculateMatch(user.c2_hangout,m.c2_hangout,5) 
             
-            match=match+10#calculateMatch(user.zodiac,m.zodiac)
-            
-            blockeduser = Blocked_Chat_Users.query.filter_by(Blocker=session['userid'],Blocked=m.userid).first()
+            blockeduser = Blocked_Chat_Users.query.filter_by(Blocker=session['userid'],Blocked=m.userid,Status=0).first()
             nonVerifiedUser =  Peer_UserStatus_Model.query.filter_by(username=m.userid,isVerified=0).first()
             
             if blockeduser is None and nonVerifiedUser is None:
                 counter+=1
                 self.row_match[m]=match
+                match=0
             if counter == 6:
                 break
                 
         self.rsorted_matches = sorted(self.row_match.iteritems(), key=operator.itemgetter(1),reverse=True)
+    
+    def calculateMatch(self,user,target,weight):
+        if user is None:
+            return 1
+        if target is None:
+            return 2
+
+        user = user.replace( ", ",",")
+        user = user.replace( " ,",",")
+        user = user.replace( ",","$")
+        target = target.replace( ", ",",")
+        target = target.replace( " ,",",")
+        target = target.replace( ",","$")
+
+        userlist = user.split('$')
+        targetlist = target.split('$')
+
+        if (len(userlist)==1 and '' in userlist):
+            return 1
+        if (len(targetlist)==1 and '' in targetlist):
+            return 1
+
+        matches=0;
+        totalcount = len(userlist) + len(targetlist);
         
+        for x in userlist:
+            if x in targetlist:
+                matches=matches+1
+       
+        returnValue =  int(math.ceil(2*matches*weight/totalcount))
+        return returnValue
+    
+
+    def calculateMatch_height(self,userheightfeet,userheightinches,targetheightfeet,targetheightinches):
+        if userheightfeet is None or userheightinches is None or targetheightfeet is None or targetheightinches is None :
+            return 1
+
+        if userheightfeet == targetheightfeet:
+            if abs(userheightinches - targetheightinches)<=2:
+                return 5        
+            else:
+                return 3
+        else :
+            if abs(userheightinches - targetheightinches) >=10:
+                return 5        
+            else:
+                return 3
+        return 5
+
+
 class ViewProfileForm(Form):
     def __init__(self, *args, **kwargs):
         Form.__init__(self, *args, **kwargs)
@@ -436,6 +480,7 @@ class ChatForm(Form):
         #echo "$uname has blocked nikhil $username";
         
         user = Blocked_Chat_Users.query.filter_by(Blocker=uname,Blocked=username).first()
+        
         if user is None:
             user1 = Blocked_Chat_Users(0, uname, username,0)
             db.session.add(user1)
@@ -444,8 +489,7 @@ class ChatForm(Form):
             user.status=0
             #update
         db.session.commit()
-
-        #exit(0)
+        
         self.response=jsonify(ok ="ok")
     
     def webcam(self,request): 

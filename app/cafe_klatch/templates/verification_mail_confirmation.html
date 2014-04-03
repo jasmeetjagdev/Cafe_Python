@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Cafe Klatch</title>
+  <link rel="stylesheet" type = text/css href= '{{url_for('static', filename = "css/style.css")}}'> 
+  <!--<link rel="stylesheet" href="styles/style.css"> -->
+</head>
+<style type="text/css">
+</style>
+<body>
+		
+		<div id="Heading">Cafe Klatch	
+			<div id="SubHeading" >Meeting over a coffee ..!!
+			<br/><br/><div style="font-size:19px;font-family:Times New Roman,Georgia,Serif;color:red">
+				We have sent you an activation link on {{session['email']}} Happy dating...!!
+				</div><br/><div align="center"><img src="{{url_for('static', filename = "images/smiley_2.png")}}" width=170px; height=120px;/></div>
+				<br/><div align="center" style="font-size:19px;font-family:Times New Roman,Georgia,Serif;color:red"><a href="login" alt="Home">Return to Home</a></div>
+			</div>
+			
+		</div>
+		
+</body>
+
+</html>
